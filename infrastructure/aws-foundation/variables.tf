@@ -81,3 +81,14 @@ variable "create_rds_sg" {
   type        = bool
   default     = false
 }
+
+variable "common_tags" {
+  description = "Common tags to apply to all resources"
+  type        = map(string)
+  default = {
+    Project    = "ai-news-feed"
+    ManagedBy  = "Terraform"
+    Owner      = "nsahmed23"
+    CostCenter = "ai-news-feed"
+  }
+}
