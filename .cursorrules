@@ -1,0 +1,61 @@
+# Cursor AI Assistant Rules for AI Updates Tracker
+
+## Project Context
+This is a production-grade AI content aggregation platform using:
+- Terraform for Infrastructure as Code (IaC)
+- AWS services: ECS Fargate, DynamoDB, S3, CloudFront, etc.
+- Python 3.13 for application code
+- Docker for containerization
+- Budget constraint: $200/month maximum
+- Windows 11 development environment
+
+## Code Standards
+- Follow terraform-standards.md for all Terraform code
+- Use Python 3.13 with type hints
+- All infrastructure must be defined in Terraform (no manual AWS console changes)
+- Security first: encrypt everything, least privilege IAM
+- Cost optimization is critical due to budget constraints
+
+## When Writing Terraform
+- Always include descriptions for variables
+- Use locals for repeated values
+- Tag all resources with: Project, Environment, ManagedBy, Owner, CostCenter
+- Prefer Fargate Spot for cost savings (70% cheaper)
+- Use NAT instances instead of NAT Gateway ($45/month savings)
+- Use DynamoDB on-demand pricing
+- Set CloudWatch log retention to 7 days
+
+## When Writing Python
+- Use async/await for I/O operations
+- Include comprehensive error handling
+- Add structured JSON logging
+- Write unit tests with pytest
+- Use type hints for all functions
+- Follow PEP 8 style guide
+
+## Cost Optimization Rules
+- Always suggest the cheapest AWS alternative that meets requirements
+- Implement auto-shutdown for non-production resources
+- Use S3 lifecycle policies
+- Enable cost allocation tags
+- Warn if any resource might exceed $20/month
+
+## Security Requirements
+- All S3 buckets must have encryption and block public access
+- All databases must have encryption at rest
+- Use AWS Secrets Manager for sensitive data
+- Enable VPC endpoints where possible
+- No hardcoded credentials ever
+
+## Project Structure
+terraform/
+  modules/
+  environments/
+    dev/
+    staging/
+    prod/
+application/
+  src/
+  tests/
+scripts/
+docs/
