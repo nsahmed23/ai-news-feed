@@ -86,21 +86,42 @@ default_tags = {
 6. ⏳ CloudTrail logging to be enabled
 7. ⏳ S3 bucket encryption by default
 
-## Next Infrastructure Components (Day 3+)
+## Deployed Infrastructure (As of Day 5)
 
-1. **VPC Foundation** (AUT-002)
-   - CIDR: 10.0.0.0/16
-   - 2 Public Subnets
-   - 2 Private Subnets
+### ✅ VPC Foundation (AUT-002) - Day 3
+- **VPC ID**: vpc-08506c0612f98b7f9
+- **CIDR**: 10.0.0.0/16
+- **Public Subnets**: 10.0.1.0/24, 10.0.2.0/24
+- **Private Subnets**: 10.0.11.0/24, 10.0.12.0/24
+- **NAT Gateway IP**: 3.219.107.20
 
-2. **S3 Buckets** (AUT-005)
+### ✅ Security Groups (AUT-003) - Day 4
+- **ALB SG**: sg-003188a58a3eb2680
+- **ECS Tasks SG**: sg-0c7528038e7759422
+- **Lambda SG**: sg-0b319e589a7cf06de
+- **VPC Endpoints SG**: sg-043de2c4bc7bb32c8
+- **RDS SG**: Optional (variable controlled)
+
+### 🔄 ECS Cluster (AUT-004) - Day 5 (Ready to Deploy)
+- **Cluster Name**: ai-news-feed-development-cluster
+- **Container Insights**: Enabled
+- **Capacity Providers**: FARGATE, FARGATE_SPOT
+- **IAM Roles**: Task execution and application roles created
+
+### 📋 Next Components
+
+1. **S3 Buckets** (AUT-005)
    - Terraform state bucket
    - Scraped data bucket
    - Static assets bucket
 
-3. **ECS Cluster** (AUT-006)
-   - Fargate launch type
-   - 2vCPU/4GB for Playwright tasks
+2. **ECR Repository** (AUT-006)
+   - Docker image registry
+   - Lifecycle policies
+
+3. **Application Load Balancer** (AUT-007)
+   - Public-facing ALB
+   - Target groups
 
 ## Cost Optimization Reminders
 

@@ -4,8 +4,8 @@
 - **Start Date**: December 3, 2024 
 - **Timeline**: 14 weeks total
 - **Budget**: $400-500/month
-- **Status**: Day 4 COMPLETE ✅ - Security Groups Implemented
-- **Last Updated**: June 6, 2025
+- **Status**: Day 5 COMPLETE ✅ - ECS Cluster Deployed
+- **Last Updated**: June 7, 2025
 
 ---
 
@@ -40,16 +40,17 @@
   - [x] Deploy with Terraform
   - [x] Create GitHub repository
   - [x] Push code to GitHub
-
-### 🔄 In Progress
+- [x] **AUT-004**: ECS Cluster Setup ✅ (Day 5)
+  - [x] ECS cluster configuration created
+  - [x] Task execution role configured  
+  - [x] Task application role configured
+  - [x] CloudWatch log groups set up
+  - [x] Monitoring dashboard defined
+  - [x] Deploy with terraform apply
+  - [x] Verify cluster creation
+  - [x] Commit and push changes
 
 ### 📋 Upcoming
-
-- [ ] **AUT-004**: ECS Cluster Setup
-  - ECS cluster creation
-  - Task execution role
-  - Service-linked role
-  - CloudWatch log groups
 
 - [ ] **AUT-005**: S3 Buckets Creation
   - Scraped data bucket
@@ -60,7 +61,7 @@
 
 ## Week 2: Core Services (Dec 10-16, 2024)
 
-- [ ] **AUT-006**: ECS Cluster Setup
+- [ ] **AUT-006**: ECR Repository
 - [ ] **AUT-007**: ECR Repository
 - [ ] **AUT-008**: Application Load Balancer
 - [ ] **AUT-009**: Route 53 Domain
@@ -108,15 +109,27 @@
 - ✅ Created GitHub repository
 - ✅ Pushed all code to GitHub
 
-### Day 5 Plan:
-- Begin AUT-004: ECS Cluster Setup
-- Create GitHub issues for tracking
-- Set up ECS cluster with Terraform
+### Day 5 Accomplishments:
+- ✅ Completed AUT-004: ECS Cluster Setup
+- ✅ Created ECS cluster with Container Insights enabled
+- ✅ Configured FARGATE and FARGATE_SPOT capacity providers
+- ✅ Set up IAM roles for task execution and application
+- ✅ Created CloudWatch log groups with cost-optimized retention
+- ✅ Added monitoring dashboard and CPU alarm
+- ✅ Successfully deployed all resources
+- ✅ Verified cluster is ACTIVE
+- ✅ Cost impact: minimal (~$0.05/day for CloudWatch)
+
+### Day 6 Plan:
+- Begin AUT-005: S3 Buckets Creation
+- Create buckets for scraped data and static assets
+- Set up bucket policies and lifecycle rules
+- Or start AUT-006: ECR Repository for container images
 
 ### Blockers:
 - None currently
 
 ### Links:
 - [AWS Console](https://console.aws.amazon.com)
-- [Project Repository](https://github.com/nsahmed23/ai-news-feed) - TO BE CREATED
+- [Project Repository](https://github.com/nsahmed23/ai-news-feed)
 - [Architecture Diagram](./ai_updates_tracker_architecture.png)

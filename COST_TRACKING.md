@@ -17,9 +17,11 @@
 | June 6 | NAT Gateway | Single NAT Gateway deployed | $1.08/day | $1.08/day |
 | June 6 | VPC Flow Logs | CloudWatch Logs (minimal) | ~$0.02/day | $1.10/day |
 | June 6 | Security Groups | ALB, ECS, Lambda, VPC Endpoints, RDS SGs | $0.00 | $1.10/day |
+| June 7 | ECS Cluster | ECS cluster (no running tasks yet) | $0.00 | $1.10/day |
+| June 7 | CloudWatch | Log groups, dashboard, Container Insights | ~$0.05/day | $1.15/day |
 
-**Daily Total**: $1.10/day
-**Projected June Total (25 days from June 6)**: ~$27.50
+**Daily Total**: $1.15/day
+**Projected June Total (25 days from June 6)**: ~$28.75
 
 ---
 
@@ -51,6 +53,8 @@
 1. **NAT Gateway**: ~$32/month (if running 24/7)
 2. **ALB**: ~$16/month (if running 24/7)  
 3. **ECS Fargate**: ~$30-50/month for small tasks
+   - 2 vCPU / 4GB RAM for Playwright: ~$0.09/hour
+   - FARGATE_SPOT can save 50-70%
 4. **Vertex AI/Gemini**: ~$20-30/month (with caching)
 
 ### Cost-Saving Strategies
