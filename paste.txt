@@ -1,0 +1,31 @@
+# AI News Feed Project - Day 5 Complete ✅
+
+## Quick Status for Next Claude Session:
+
+**ESSENTIAL**: Read these files first:
+1. `docs/CLAUDE_CONTEXT_DAY6_READY.md` - Current status
+2. `docs/CLAUDE_HANDOFF_DAY5_COMPLETE.md` - Comprehensive handoff
+3. `SPRINT_TRACKING.md` - Progress tracker
+
+**Current State (Day 5 Complete):**
+- Project Day: 5 of 98 ✅
+- Infrastructure: VPC, Security Groups, ECS Cluster deployed
+- Daily Cost: $1.15/day (NAT Gateway + CloudWatch)
+- GitHub: main branch clean, all changes committed
+- Next: Day 6 - Choose AUT-005 (S3) or AUT-006 (ECR)
+
+**Key Infrastructure IDs:**
+- VPC: vpc-08506c0612f98b7f9
+- ECS Cluster: ai-updates-tracker-development-cluster
+- NAT Gateway: Running 24/7 ($1.10/day)
+
+**Quick Start Day 6:**
+```bash
+cd ~/ai-updates-tracker
+git checkout main
+git pull
+git checkout -b feature/AUT-005-s3-buckets  # or AUT-006-ecr
+cd infrastructure/aws-foundation
+```
+
+See `CLAUDE_QUICK_HANDOFF.md` for copy-paste message.
