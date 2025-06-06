@@ -1,0 +1,18 @@
+# Backend Configuration for Terraform State
+
+# This file will be used in the next phase to configure remote state storage
+# For now, we'll use local state, but this documents the future configuration
+
+# Future backend configuration (to be added after S3 bucket is created):
+# terraform {
+#   backend "s3" {
+#     bucket         = "ai-updates-tracker-terraform-state-[ACCOUNT_ID]"
+#     key            = "aws-foundation/terraform.tfstate"
+#     region         = "us-east-1"
+#     encrypt        = true
+#     dynamodb_table = "ai-updates-tracker-terraform-locks"
+#   }
+# }
+
+# For now, state will be stored locally in terraform.tfstate
+# Remember to add terraform.tfstate* to .gitignore (already done)
