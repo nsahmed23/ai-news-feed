@@ -3,18 +3,21 @@
 ## Budget Overview
 - **Monthly Target**: $400-500 (production)
 - **Development Target**: <$50/month
-- **Current Month**: December 2024
+- **Current Month**: June 2025
 
 ---
 
 ## Cost Tracking Log
 
-### December 2024
+### June 2025
 
 | Date | Service | Description | Cost | Running Total |
 |------|---------|-------------|------|---------------|
-| Dec 3 | Setup | Account created, MFA enabled, IAM configured | $0.00 | $0.00 |
-| Dec 3 | Billing | Budgets created ($50, $100, $200 alerts) | $0.00 | $0.00 |
+| June 6 | VPC | VPC, Subnets, IGW, Route Tables | $0.00 | $0.00 |
+| June 6 | NAT Gateway | Single NAT Gateway deployed | $1.10/day | $1.10/day |
+| June 6 | VPC Flow Logs | CloudWatch Logs (minimal) | ~$0.10/day | $1.20/day |
+
+**Projected June Total (24 days)**: ~$28.80
 
 ---
 
