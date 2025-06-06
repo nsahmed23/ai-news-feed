@@ -14,10 +14,12 @@
 | Date | Service | Description | Cost | Running Total |
 |------|---------|-------------|------|---------------|
 | June 6 | VPC | VPC, Subnets, IGW, Route Tables | $0.00 | $0.00 |
-| June 6 | NAT Gateway | Single NAT Gateway deployed | $1.10/day | $1.10/day |
-| June 6 | VPC Flow Logs | CloudWatch Logs (minimal) | ~$0.10/day | $1.20/day |
+| June 6 | NAT Gateway | Single NAT Gateway deployed | $1.08/day | $1.08/day |
+| June 6 | VPC Flow Logs | CloudWatch Logs (minimal) | ~$0.02/day | $1.10/day |
+| June 6 | Security Groups | ALB, ECS, Lambda, VPC Endpoints, RDS SGs | $0.00 | $1.10/day |
 
-**Projected June Total (24 days)**: ~$28.80
+**Daily Total**: $1.10/day
+**Projected June Total (25 days from June 6)**: ~$27.50
 
 ---
 
