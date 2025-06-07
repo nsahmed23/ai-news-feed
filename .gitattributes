@@ -1,0 +1,57 @@
+# Git attributes for AI Updates Tracker
+# Ensure consistent line endings across platforms
+
+# Default behavior
+* text=auto
+
+# Explicitly declare text files
+*.md text
+*.txt text
+*.yml text
+*.yaml text
+*.json text
+*.js text
+*.py text
+*.sh text eol=lf
+*.tf text
+*.tfvars text
+*.css text
+*.html text
+*.xml text
+*.svg text
+
+# Terraform files should always use LF
+*.tf text eol=lf
+*.tfvars text eol=lf
+
+# Shell scripts should always use LF
+*.sh text eol=lf
+
+# Windows scripts
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.zip binary
+*.gz binary
+*.tar binary
+*.tgz binary
+*.jar binary
+*.war binary
+*.ear binary
+
+# Docker
+Dockerfile text eol=lf
+.dockerignore text eol=lf
+
+# Git files
+.gitattributes text
+.gitignore text
+.gitmodules text

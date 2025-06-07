@@ -87,3 +87,9 @@ variable "create_terraform_state_bucket" {
   type        = bool
   default     = false # Set to true if you want to use remote state
 }
+
+variable "domain_name" {
+  description = "Domain name for the application (used for CORS)"
+  type        = string
+  default     = "" # Set your domain when you have one
+}

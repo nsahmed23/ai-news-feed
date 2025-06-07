@@ -43,9 +43,9 @@ resource "aws_s3_bucket_public_access_block" "this" {
 # Bucket policy for public read (if needed for static hosting)
 resource "aws_s3_bucket_policy" "public_read" {
   count = !var.block_public_access && var.website_configuration != null ? 1 : 0
-  
+
   bucket = aws_s3_bucket.this.id
-  
+
   # Ensure public access block is removed before applying policy
   depends_on = [aws_s3_bucket_public_access_block.this]
 

@@ -150,8 +150,8 @@ resource "aws_dynamodb_table" "terraform_locks" {
   })
 }
 
-# Additional IAM policy for ECS tasks to access our new S3 buckets
-# Note: There's already a basic S3 policy in iam_ecs.tf, but this updates it for our specific buckets
+# Task role policy for S3 access - Updated with least privilege
+# Note: Removed DeleteObject permission for better security
 resource "aws_iam_role_policy" "ecs_task_s3_buckets_access" {
   name = "ecs-task-s3-buckets-access"
   role = aws_iam_role.ecs_task.id
@@ -160,12 +160,13 @@ resource "aws_iam_role_policy" "ecs_task_s3_buckets_access" {
     Version = "2012-10-17"
     Statement = [
       {
+        Sid    = "ReadWriteScrapedData"
         Effect = "Allow"
         Action = [
-          "s3:GetObject",
           "s3:PutObject",
-          "s3:DeleteObject",
+          "s3:GetObject",
           "s3:ListBucket"
+          # Removed s3:DeleteObject for security
         ]
         Resource = [
           module.scraped_data_bucket.bucket_arn,
@@ -173,6 +174,7 @@ resource "aws_iam_role_policy" "ecs_task_s3_buckets_access" {
         ]
       },
       {
+        Sid    = "ReadOnlyStaticAssets"
         Effect = "Allow"
         Action = [
           "s3:GetObject",

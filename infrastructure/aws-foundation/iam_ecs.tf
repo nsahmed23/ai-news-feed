@@ -84,6 +84,7 @@ resource "aws_iam_role" "ecs_task" {
 # The policy in s3.tf references the actual bucket resources for better maintainability
 
 # Task role policy for DynamoDB access (if using for state/tracking)
+# Updated with least privilege - only specific actions needed
 resource "aws_iam_role_policy" "ecs_task_dynamodb_access" {
   name = "ecs-task-dynamodb-access"
   role = aws_iam_role.ecs_task.id
@@ -92,14 +93,14 @@ resource "aws_iam_role_policy" "ecs_task_dynamodb_access" {
     Version = "2012-10-17"
     Statement = [
       {
+        Sid    = "DynamoDBAccess"
         Effect = "Allow"
         Action = [
           "dynamodb:GetItem",
           "dynamodb:PutItem",
           "dynamodb:Query",
-          "dynamodb:Scan",
-          "dynamodb:UpdateItem",
-          "dynamodb:DeleteItem"
+          "dynamodb:UpdateItem"
+          # Removed DeleteItem and Scan for security
         ]
         Resource = "arn:aws:dynamodb:${var.aws_region}:${data.aws_caller_identity.current.account_id}:table/${var.project_name}-${var.environment}-*"
       }
@@ -108,6 +109,7 @@ resource "aws_iam_role_policy" "ecs_task_dynamodb_access" {
 }
 
 # Task role policy for Secrets Manager (for API keys, etc.)
+# Updated to be more specific
 resource "aws_iam_role_policy" "ecs_task_secrets_access" {
   name = "ecs-task-secrets-access"
   role = aws_iam_role.ecs_task.id
@@ -116,11 +118,15 @@ resource "aws_iam_role_policy" "ecs_task_secrets_access" {
     Version = "2012-10-17"
     Statement = [
       {
+        Sid    = "SecretsAccess"
         Effect = "Allow"
         Action = [
           "secretsmanager:GetSecretValue"
         ]
-        Resource = "arn:aws:secretsmanager:${var.aws_region}:${data.aws_caller_identity.current.account_id}:secret:${var.project_name}/${var.environment}/*"
+        Resource = [
+          "arn:aws:secretsmanager:${var.aws_region}:${data.aws_caller_identity.current.account_id}:secret:${var.project_name}/${var.environment}/api-keys-*",
+          "arn:aws:secretsmanager:${var.aws_region}:${data.aws_caller_identity.current.account_id}:secret:${var.project_name}/${var.environment}/proxy-*"
+        ]
       }
     ]
   })

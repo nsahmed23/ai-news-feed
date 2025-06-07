@@ -1,0 +1,55 @@
+{
+    "ConfigRules": [
+        {
+            "ConfigRuleName": "encrypted-volumes",
+            "ConfigRuleArn": "arn:aws:config:us-east-1:279684395806:config-rule/config-rule-ncdrfq",
+            "ConfigRuleId": "config-rule-ncdrfq",
+            "Source": {
+                "Owner": "AWS",
+                "SourceIdentifier": "ENCRYPTED_VOLUMES"
+            },
+            "ConfigRuleState": "ACTIVE",
+            "EvaluationModes": [
+                {
+                    "Mode": "DETECTIVE"
+                }
+            ]
+        },
+        {
+            "ConfigRuleName": "iam-user-mfa-enabled",
+            "ConfigRuleArn": "arn:aws:config:us-east-1:279684395806:config-rule/config-rule-xjjq3j",
+            "ConfigRuleId": "config-rule-xjjq3j",
+            "Source": {
+                "Owner": "AWS",
+                "SourceIdentifier": "IAM_USER_MFA_ENABLED"
+            },
+            "ConfigRuleState": "ACTIVE",
+            "EvaluationModes": [
+                {
+                    "Mode": "DETECTIVE"
+                }
+            ]
+        },
+        {
+            "ConfigRuleName": "s3-bucket-public-read-prohibited",
+            "ConfigRuleArn": "arn:aws:config:us-east-1:279684395806:config-rule/config-rule-3omq9t",
+            "ConfigRuleId": "config-rule-3omq9t",
+            "Scope": {
+                "ComplianceResourceTypes": [
+                    "AWS::S3::Bucket"
+                ],
+                "ComplianceResourceId": "ai-news-feed-development-scraped-data-991el7cv"
+            },
+            "Source": {
+                "Owner": "AWS",
+                "SourceIdentifier": "S3_BUCKET_PUBLIC_READ_PROHIBITED"
+            },
+            "ConfigRuleState": "ACTIVE",
+            "EvaluationModes": [
+                {
+                    "Mode": "DETECTIVE"
+                }
+            ]
+        }
+    ]
+}
