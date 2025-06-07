@@ -20,9 +20,11 @@
 | June 7 | ECS Cluster | ECS cluster (no running tasks yet) | $0.00 | $1.10/day |
 | June 7 | CloudWatch | Log groups, dashboard, Container Insights | ~$0.05/day | $1.15/day |
 | June 7 | ECR | Container registry (ai-news-feed-development) | ~$0.05/day | $1.20/day |
+| June 7 | S3 | Two S3 buckets created (scraped-data, static-assets) | ~$0.03/day | $1.23/day |
 
-**Daily Total**: $1.20/day
-**Projected June Total (25 days from June 6)**: ~$30.00
+**Daily Total**: $1.23/day
+**Projected June Total (25 days from June 6)**: ~$31.00
+**Monthly Estimate**: ~$37.00 (26% under budget!)
 
 **Note**: ECR charges $0.10/GB/month for storage. Initial usage will be minimal.
 
@@ -62,6 +64,10 @@
 5. **ECR**: ~$1-3/month
    - $0.10/GB/month for storage
    - Lifecycle policies configured to minimize storage
+6. **S3**: ~$1-2/month
+   - $0.023/GB/month for Standard storage
+   - Lifecycle policies: 30d→IA, 90d→Glacier IR, 365d→Delete
+   - Static website hosting minimal cost
 
 ### Cost-Saving Strategies
 1. Use single NAT Gateway (not HA) in dev
