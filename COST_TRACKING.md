@@ -19,9 +19,12 @@
 | June 6 | Security Groups | ALB, ECS, Lambda, VPC Endpoints, RDS SGs | $0.00 | $1.10/day |
 | June 7 | ECS Cluster | ECS cluster (no running tasks yet) | $0.00 | $1.10/day |
 | June 7 | CloudWatch | Log groups, dashboard, Container Insights | ~$0.05/day | $1.15/day |
+| June 7 | ECR | Container registry (ai-news-feed-development) | ~$0.05/day | $1.20/day |
 
-**Daily Total**: $1.15/day
-**Projected June Total (25 days from June 6)**: ~$28.75
+**Daily Total**: $1.20/day
+**Projected June Total (25 days from June 6)**: ~$30.00
+
+**Note**: ECR charges $0.10/GB/month for storage. Initial usage will be minimal.
 
 ---
 
@@ -56,6 +59,9 @@
    - 2 vCPU / 4GB RAM for Playwright: ~$0.09/hour
    - FARGATE_SPOT can save 50-70%
 4. **Vertex AI/Gemini**: ~$20-30/month (with caching)
+5. **ECR**: ~$1-3/month
+   - $0.10/GB/month for storage
+   - Lifecycle policies configured to minimize storage
 
 ### Cost-Saving Strategies
 1. Use single NAT Gateway (not HA) in dev

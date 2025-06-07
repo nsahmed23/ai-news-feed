@@ -4,7 +4,7 @@
 - **Start Date**: December 3, 2024 
 - **Timeline**: 14 weeks total
 - **Budget**: $400-500/month
-- **Status**: Day 5 COMPLETE ✅ - ECS Cluster Deployed
+- **Status**: Day 6 COMPLETE ✅ - ECR Repository Created
 - **Last Updated**: June 7, 2025
 
 ---
@@ -61,8 +61,15 @@
 
 ## Week 2: Core Services (Dec 10-16, 2024)
 
-- [ ] **AUT-006**: ECR Repository
-- [ ] **AUT-007**: ECR Repository
+- [x] **AUT-006**: ECR Repository ✅ (Day 6)
+  - [x] ECR repository created: ai-news-feed-development
+  - [x] Repository URL: 279684395806.dkr.ecr.us-east-1.amazonaws.com/ai-news-feed-development
+  - [x] Image tag immutability enabled
+  - [x] Vulnerability scanning enabled
+  - [x] Lifecycle policies configured for cost optimization
+  - [x] Build and push script created
+  - [x] Test container ready
+- [ ] **AUT-007**: Application Load Balancer
 - [ ] **AUT-008**: Application Load Balancer
 - [ ] **AUT-009**: Route 53 Domain
 - [ ] **AUT-010**: Secrets Manager
@@ -120,11 +127,21 @@
 - ✅ Verified cluster is ACTIVE
 - ✅ Cost impact: minimal (~$0.05/day for CloudWatch)
 
-### Day 6 Plan:
-- Begin AUT-005: S3 Buckets Creation
-- Create buckets for scraped data and static assets
-- Set up bucket policies and lifecycle rules
-- Or start AUT-006: ECR Repository for container images
+### Day 6 Accomplishments:
+- ✅ Completed AUT-006: ECR Repository
+- ✅ Created ECR repository with Terraform module
+- ✅ Configured lifecycle policies to keep costs low
+- ✅ Enabled vulnerability scanning on push
+- ✅ Created build-and-push-ecr.sh script
+- ✅ Created test container with Dockerfile
+- ✅ Fixed lifecycle policy validation errors
+- ✅ Repository URL: 279684395806.dkr.ecr.us-east-1.amazonaws.com/ai-news-feed-development
+- ✅ Ready to push Docker images
+
+### Day 7 Plan:
+- Choose between AUT-005 (S3 Buckets) or AUT-007 (ALB)
+- Both are needed eventually
+- S3 might be quicker to implement
 
 ### Blockers:
 - None currently

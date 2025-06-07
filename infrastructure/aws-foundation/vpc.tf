@@ -1,9 +1,6 @@
 # VPC and Networking Resources
 
 # Get available AZs
-data "aws_availability_zones" "available" {
-  state = "available"
-}
 
 # Create VPC
 resource "aws_vpc" "main" {
