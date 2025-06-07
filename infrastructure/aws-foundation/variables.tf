@@ -81,3 +81,9 @@ variable "create_rds_sg" {
   type        = bool
   default     = false
 }
+
+variable "create_terraform_state_bucket" {
+  description = "Whether to create S3 bucket for Terraform remote state storage"
+  type        = bool
+  default     = false # Set to true if you want to use remote state
+}

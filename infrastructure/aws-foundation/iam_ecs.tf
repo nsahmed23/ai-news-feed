@@ -80,30 +80,8 @@ resource "aws_iam_role" "ecs_task" {
   )
 }
 
-# Task role policy for S3 access (scraped data storage)
-resource "aws_iam_role_policy" "ecs_task_s3_access" {
-  name = "ecs-task-s3-access"
-  role = aws_iam_role.ecs_task.id
-
-  policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Effect = "Allow"
-        Action = [
-          "s3:GetObject",
-          "s3:PutObject",
-          "s3:DeleteObject",
-          "s3:ListBucket"
-        ]
-        Resource = [
-          "arn:aws:s3:::${var.project_name}-${var.environment}-scraped-data/*",
-          "arn:aws:s3:::${var.project_name}-${var.environment}-scraped-data"
-        ]
-      }
-    ]
-  })
-}
+# Task role policy for S3 access - Moved to s3.tf where actual buckets are created
+# The policy in s3.tf references the actual bucket resources for better maintainability
 
 # Task role policy for DynamoDB access (if using for state/tracking)
 resource "aws_iam_role_policy" "ecs_task_dynamodb_access" {

@@ -90,3 +90,46 @@ output "rds_security_group_id" {
   description = "ID of the RDS security group"
   value       = var.create_rds_sg ? aws_security_group.rds[0].id : null
 }
+
+# S3 Bucket Outputs
+output "scraped_data_bucket_name" {
+  description = "Name of the scraped data S3 bucket"
+  value       = module.scraped_data_bucket.bucket_id
+}
+
+output "scraped_data_bucket_arn" {
+  description = "ARN of the scraped data S3 bucket"
+  value       = module.scraped_data_bucket.bucket_arn
+}
+
+output "static_assets_bucket_name" {
+  description = "Name of the static assets S3 bucket"
+  value       = module.static_assets_bucket.bucket_id
+}
+
+output "static_assets_bucket_arn" {
+  description = "ARN of the static assets S3 bucket"
+  value       = module.static_assets_bucket.bucket_arn
+}
+
+output "static_assets_bucket_website_endpoint" {
+  description = "Website endpoint for the static assets bucket"
+  value       = module.static_assets_bucket.website_endpoint
+}
+
+output "terraform_state_bucket_name" {
+  description = "Name of the Terraform state S3 bucket"
+  value       = var.create_terraform_state_bucket ? module.terraform_state_bucket[0].bucket_id : null
+}
+
+output "terraform_state_bucket_arn" {
+  description = "ARN of the Terraform state S3 bucket"
+  value       = var.create_terraform_state_bucket ? module.terraform_state_bucket[0].bucket_arn : null
+}
+
+output "dynamodb_state_lock_table" {
+  description = "Name of the DynamoDB table for Terraform state locking"
+  value       = var.create_terraform_state_bucket ? aws_dynamodb_table.terraform_locks[0].name : null
+}
+
+# S3 access is now handled by inline policy on ECS task role
